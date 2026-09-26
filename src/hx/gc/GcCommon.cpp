@@ -62,7 +62,7 @@ void CommonInitAlloc()
    const char* minimumFreeSpace{ getenv("HXCPP_MINIMUM_FREE_SPACE") };
    if (minimumFreeSpace)
    {
-       if (1 != std::sscanf(minimumFreeSpace, "%zu", &sgMinimumFreeSpace))
+       if (1 != sscanf(minimumFreeSpace, "%zu", &sgMinimumFreeSpace))
        {
            hx::CriticalError(HX_CSTRING("Failed to parse number from HXCPP_MINIMUM_FREE_SPACE environment variable"));
        }
@@ -71,7 +71,7 @@ void CommonInitAlloc()
    const char* targetFree{ getenv("HXCPP_TARGET_FREE_SPACE") };
    if (targetFree)
    {
-       if (1 != std::sscanf(targetFree, "%zu", &sgTargetFreeSpacePercentage))
+       if (1 != sscanf(targetFree, "%zu", &sgTargetFreeSpacePercentage))
        {
            hx::CriticalError(HX_CSTRING("Failed to parse number from HXCPP_TARGET_FREE_SPACE environment variable"));
        }
