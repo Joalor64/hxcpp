@@ -4,6 +4,7 @@
 #include <vector>
 #include <set>
 #include <stdlib.h>
+#include <stdio.h>
 
 #if defined(HXCPP_CAPTURE_x64) && !defined(__GNUC__)
 #include <windows.h>
@@ -52,7 +53,7 @@ void CommonInitAlloc()
    const char *minimumWorking{ getenv("HXCPP_MINIMUM_WORKING_MEMORY") };
    if (minimumWorking)
    {
-       if (1 != std::sscanf(minimumWorking, "%zu", &sgMinimumWorkingMemory))
+       if (1 != sscanf(minimumWorking, "%zu", &sgMinimumWorkingMemory))
        {
            hx::CriticalError(HX_CSTRING("Failed to parse number from HXCPP_MINIMUM_WORKING_MEMORY environment variable"));
        }
